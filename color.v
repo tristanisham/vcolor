@@ -1,7 +1,7 @@
 module color
 
 struct ANSImessage {
-	message string
+	message []string
 mut:
 	color      string
 	background string
@@ -12,7 +12,7 @@ fn (c ANSImessage) str() string {
 	return '\033[$c.color' +'$c.background'+'$c.style'+'m$c.message'+c.reset()
 }
 
-pub fn new(text string) ANSImessage {
+pub fn new(text ...string) ANSImessage {
 	return ANSImessage{
 		message: text
 	}
